@@ -3,79 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Portfolio | Dipesh</title>
+
+    <meta name="description" content="Dipesh's cybersecurity portfolio showcasing projects, SOC lab work, security research, and technical skills.">
+    <meta name="author" content="Dipesh">
+
+    <title>Dipesh | Cybersecurity Portfolio</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">Dipesh</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- ================= NAVBAR ================= -->
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1>Hello, I'm <span class="highlight">Dipesh</span></h1>
-            <p>Cybersecurity analyst | Linux enthusiast | Problem Solver</p>
-            <a href="#projects" class="btn">View My Work</a>
-        </div>
-    </section>
+    <header>
+        <nav class="navbar">
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <h2>About Me</h2>
-        <p>I’m a curious and driven person who enjoys learning, solving problems, and taking on challenges that push me to grow.
-I’m passionate about technology and cybersecurity, and I’m always looking for opportunities to turn what I learn into something practical and meaningful.
-</p>
-    </section>
+            <a href="#" class="logo">Dipesh</a>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects-section">
-        <h2>Projects</h2>
-        <div class="project-cards">
-            <div class="project-card">
-                <img src="C:\Users\maury\OneDrive\Desktop\coding\html\Screenshot 2024-10-05 205950.png" alt="Project 1">
-                <h3>Project One</h3>
-                <p>Arcanux: A post-quantum secure data-hiding platform that combines encryption and steganography to protect sensitive information.</p>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <!-- Dark / Light Mode -->
+            <button
+                id="theme-toggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Toggle dark mode"
+                title="Toggle dark mode">
+                🌙
+            </button>
+
+        </nav>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <main>
+
+        <section class="hero-section" id="home">
+
+            <div class="hero-content">
+
+                <p class="hero-intro">Hello, I'm</p>
+
+                <h1>
+                    <span class="highlight">Dipesh</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Cybersecurity Analyst | Linux Enthusiast | Problem Solver
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#projects" class="btn">
+                        View My Work
+                    </a>
+
+                    <a href="#contact" class="btn btn-secondary">
+                        Contact Me
+                    </a>
+
+                </div>
+
             </div>
-            <div class="project-card">
-                <img src="C:\Users\maury\OneDrive\Desktop\coding\html\Screenshot 2024-10-05 210646.png" alt="Project 2">
-                <h3>Project Two</h3>
-                <p>SOC Lab: A hands-on security operations environment built to simulate real-world threat detection, monitoring, investigation, and incident response across multiple systems.</p>
-            </div>
-            <div class="project-card">
-                <img src="C:\Users\maury\OneDrive\Desktop\coding\html\Screenshot 2024-10-05 211004.png" alt="Project 3">
-                <h3>Project Three</h3>
-                <p>MITRE ATT&CK Attack Chain: A practical SOC platform that reconstructs simulated attacks into an end-to-end adversary chain, maps each behavior to MITRE ATT&CK techniques, correlates security events, and identifies detection gaps to improve and validate defensive coverage.</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <h2>Contact Me</h2>
-        <p>I'm always open to new opportunities and collaborations. Get in touch with me using the form below or connect with me on social media.</p>
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-    </section>
+        </section>
 
-    <!-- Footer -->
+
+        <!-- ================= ABOUT ================= -->
+
+        <section id="about" class="about-section">
+
+            <div class="section-container">
+
+                <h2>About Me</h2>
+
+                <p>
+                    I'm a curious and driven person who enjoys learning,
+                    solving problems, and taking on challenges that push me
+                    to grow.
+                </p>
+
+                <p>
+                    I'm passionate about technology and cybersecurity,
+                    and I enjoy turning what I learn into practical,
+                    meaningful projects.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROJECTS ================= -->
+
+        <section id="projects" class="projects-section">
+
+            <div class="section-container">
+
+                <h2>Projects</h2>
+
+                <p class="section-description">
+                    A selection of cybersecurity projects and hands-on
+                    security work I've built and experimented with.
+                </p>
+
+
+                <div class="project-cards">
+
+
+                    <!-- Project 1 -->
+
+                    <article class="project-card">
+
+                        <img
+                            src="images/arcanux.png"
+                            alt="Arcanux cybersecurity project"
+                            loading="lazy">
+
+                        <div class="project-content">
+
+                            <h3>Arcanux</h3>
+
+                            <p>
+                                A post-quantum secure data-hiding platform
+                                that combines encryption and steganography
+                                to protect sensitive information.
+                            </p>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="#"
+                                    class="project-link"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    View Project
+                                </a>
+
+                                <a
+                                    href="https://github.com/"
+                                    class="project-link"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    GitHub
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Project 2 -->
+
+                    <article class="project-card">
+
+                        <img
+                            src="images/soc-lab.png"
+                            alt="Security Operations Center laboratory"
+                            loading="lazy">
+
+                        <div class="project-content">
+
+                            <h3>SOC Lab</h3>
+
+                            <p>
+                                A hands-on security operations environment
+                                built to simulate real-world threat detection,
+                                monitoring, investigation, and incident
+                                response across multiple systems.
+                            </p>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="#"
+                                    class="project-link"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    View Project
+                                </a>
+
+                                <a
+                                    href="https://github.com/"
+                                    class="project-link"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    GitHub
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Project 3 -->
+
+                    <article class="project-card">
+
+                        <img
+                            src="images/mitre-attack-chain.png"
+                            alt="MITRE ATT&CK attack chain project"
+                            loading="lazy">
+
+                        <div class="project-content">
+
+                            <h3>MITRE ATT&CK Attack Chain</h3>
+
+                            <p>
+                                A practical SOC platform that reconstructs
+                                simulated attacks into an end-to-end adversary
+                                chain, maps behaviors to MITRE ATT&CK techniques,
+                                correlates security events, and identifies
+                                detection gaps.
+                            </p>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="#"
+                                    class="project-link"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    View Project
+                                </a>
+
+                                <a
+                                    href="https://github.com/"
+                                    class="project-link"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    GitHub
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <section id="contact" class="contact-section">
+
+            <div class="section-container">
+
+                <h2>Contact Me</h2>
+
+                <p>
+                    I'm open to cybersecurity opportunities, internships,
+                    collaborations, and interesting security projects.
+                </p>
+
+
+                <form class="contact-form">
+
+                    <label for="name">Name</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Your Name"
+                        required>
+
+
+                    <label for="email">Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Your Email"
+                        required>
+
+
+                    <label for="message">Message</label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="6"
+                        placeholder="Your Message"
+                        required></textarea>
+
+
+                    <button
+                        type="submit"
+                        class="btn">
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
     <footer>
-        <p>&copy; 2026 Dipesh | All Rights Reserved</p>
+
+        <p>
+            &copy; 2026 Dipesh. All Rights Reserved.
+        </p>
+
     </footer>
 
-    <script src="scrips.js"></script>
+
+    <!-- JavaScript -->
+    <script src="scripts.js"></script>
+
 </body>
 </html>
