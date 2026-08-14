@@ -1,60 +1,67 @@
-// =========================================================
-// DARK / LIGHT MODE
-// =========================================================
+document.addEventListener("DOMContentLoaded", () => {
 
-const themeToggle = document.getElementById("theme-toggle");
+    const themeToggle = document.getElementById("theme-toggle");
 
-const savedTheme = localStorage.getItem("theme");
+    if (!themeToggle) {
+        console.error("Theme toggle button not found.");
+        return;
+    }
 
-if (savedTheme === "dark") {
-    document.body.classList.add("dark-mode");
-    themeToggle.textContent = "☀️";
-} else {
-    themeToggle.textContent = "🌙";
-}
+    // Load saved theme
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+
+    updateThemeButton();
+
+    // Theme toggle
+    themeToggle.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark-mode");
+
+        const isDark = document.body.classList.contains("dark-mode");
+
+        localStorage.setItem(
+            "theme",
+            isDark ? "dark" : "light"
+        );
+
+        updateThemeButton();
+    });
 
 
-// Toggle theme when button is clicked
+    function updateThemeButton() {
 
-themeToggle.addEventListener("click", () => {
+        const isDark =
+            document.body.classList.contains("dark-mode");
 
-    document.body.classList.toggle("dark-mode");
+        themeToggle.textContent = isDark ? "☀" : "☾";
 
-    const darkModeEnabled =
-        document.body.classList.contains("dark-mode");
+        themeToggle.setAttribute(
+            "aria-label",
+            isDark
+                ? "Switch to light mode"
+                : "Switch to dark mode"
+        );
+    }
 
-    if (darkModeEnabled) {
-        themeToggle.textContent = "☀️";
-        themeToggle.setAttribute("aria-label", "Switch to light mode");
 
-        localStorage.setItem("theme", "dark");
+    // Contact form
+    const contactForm =
+        document.querySelector(".contact-form");
 
-    } else {
-        themeToggle.textContent = "🌙";
-        themeToggle.setAttribute("aria-label", "Switch to dark mode");
+    if (contactForm) {
 
-        localStorage.setItem("theme", "light");
+        contactForm.addEventListener("submit", (e) => {
+
+            e.preventDefault();
+
+            alert("Message Sent Successfully!");
+
+            contactForm.reset();
+        });
     }
 
 });
-
-
-// =========================================================
-// CONTACT FORM
-// =========================================================
-
-const contactForm = document.querySelector(".contact-form");
-
-if (contactForm) {
-
-    contactForm.addEventListener("submit", function (e) {
-
-        e.preventDefault();
-
-        alert("Message Sent Successfully!");
-
-        contactForm.reset();
-
-    });
-
-}
