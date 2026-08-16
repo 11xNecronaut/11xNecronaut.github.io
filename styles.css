@@ -363,12 +363,22 @@ svg { display: block; }
 /* ==========================================================================
    Projects
    ========================================================================== */
+.projects__scroller { position: relative; display: flex; align-items: center; gap: 12px; }
+
 .projects__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 8px;
+  scrollbar-width: none;
 }
+.projects__grid::-webkit-scrollbar { display: none; }
+
 .project-card {
+  flex: 0 0 320px;
+  scroll-snap-align: start;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-m);
@@ -402,6 +412,21 @@ svg { display: block; }
   color: var(--accent-strong);
 }
 .project-card__links a:hover { text-decoration: underline; }
+
+.projects__arrow {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  transition: border-color .2s var(--ease), transform .2s var(--ease);
+}
+.projects__arrow:hover { border-color: var(--accent); transform: scale(1.05); }
+.projects__arrow:disabled { opacity: .35; pointer-events: none; }
 
 /* ==========================================================================
    Timeline
