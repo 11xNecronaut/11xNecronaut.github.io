@@ -1,67 +1,133 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.documentElement.classList.add('js');
 
-    const themeToggle = document.getElementById("theme-toggle");
+var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (!themeToggle) {
-        console.error("Theme toggle button not found.");
-        return;
-    }
+/* ---------- Footer year ---------- */
+document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Load saved theme
-    const savedTheme = localStorage.getItem("theme");
+/* ---------- Theme toggle ----------
+   Session-only: flips a data-theme attribute on <html>. No storage is used,
+   so it resets to the visitor's system preference on the next visit. */
+(function () {
+  var toggle = document.getElementById('themeToggle');
+  var root = document.documentElement;
 
-    if (savedTheme === "dark") {
-        document.body.classList.add("dark-mode");
-    }
+  toggle.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    toggle.setAttribute('aria-label', next === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+  });
+})();
 
-    updateThemeButton();
+/* ---------- Mobile nav ---------- */
+(function () {
+  var btn = document.getElementById('navMenuBtn');
+  var links = document.getElementById('navLinks');
 
-    // Theme toggle
-    themeToggle.addEventListener("click", () => {
+  btn.addEventListener('click', function () {
+    var isOpen = links.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', String(isOpen));
+  });
 
-        document.body.classList.toggle("dark-mode");
-
-        const isDark = document.body.classList.contains("dark-mode");
-
-        localStorage.setItem(
-            "theme",
-            isDark ? "dark" : "light"
-        );
-
-        updateThemeButton();
+  links.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      links.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
     });
+  });
+})();
 
+/* ---------- Scroll reveal ---------- */
+(function () {
+  var items = document.querySelectorAll('.reveal');
+  if (!items.length) return;
 
-    function updateThemeButton() {
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('is-visible'); });
+    return;
+  }
 
-        const isDark =
-            document.body.classList.contains("dark-mode");
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-        themeToggle.textContent = isDark ? "☀" : "☾";
+  items.forEach(function (el) { observer.observe(el); });
+})();
 
-        themeToggle.setAttribute(
-            "aria-label",
-            isDark
-                ? "Switch to light mode"
-                : "Switch to dark mode"
-        );
+/* ---------- Hero terminal readout ---------- */
+(function () {
+  var output = document.getElementById('scanOutput');
+  var cursor = document.getElementById('scanCursor');
+  if (!output) return;
+
+  var lines = [
+    '$ recon --target [scope]',
+    'enumerating attack surface... 3 endpoints found',
+    'checking auth flows...            [ OK ]',
+    'reviewing input validation...     [ OK ]',
+    'cross-referencing CVE index...    up to date',
+    '',
+    'status: open to new engagements'
+  ];
+
+  if (reduceMotion) {
+    output.textContent = lines.join('\n');
+    if (cursor) cursor.style.display = 'none';
+    return;
+  }
+
+  var lineIndex = 0, charIndex = 0;
+
+  function typeNext() {
+    if (lineIndex >= lines.length) {
+      setTimeout(reset, 3200);
+      return;
     }
-
-
-    // Contact form
-    const contactForm =
-        document.querySelector(".contact-form");
-
-    if (contactForm) {
-
-        contactForm.addEventListener("submit", (e) => {
-
-            e.preventDefault();
-
-            alert("Message Sent Successfully!");
-
-            contactForm.reset();
-        });
+    var line = lines[lineIndex];
+    if (charIndex <= line.length) {
+      output.textContent = lines.slice(0, lineIndex).join('\n') +
+        (lineIndex > 0 ? '\n' : '') + line.slice(0, charIndex);
+      charIndex++;
+      setTimeout(typeNext, line.length === 0 ? 120 : 18 + Math.random() * 22);
+    } else {
+      lineIndex++;
+      charIndex = 0;
+      setTimeout(typeNext, 260);
     }
+  }
 
-});
+  function reset() {
+    lineIndex = 0;
+    charIndex = 0;
+    output.textContent = '';
+    typeNext();
+  }
+
+  typeNext();
+})();
+
+/* ---------- Contact form ----------
+   This is a front-end placeholder: it validates the fields and confirms
+   submission, but no message is actually sent anywhere yet. Wire it up to
+   a form backend such as Formspree, EmailJS, or your own endpoint — swap
+   the body of handleSubmit for a fetch() call to that service. */
+(function () {
+  var form = document.getElementById('contactForm');
+  var note = document.getElementById('formNote');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      note.textContent = 'Please fill in every field before sending.';
+      return;
+    }
+    note.textContent = 'Form captured — connect this to Formspree, EmailJS, or your own backend to actually send it.';
+    form.reset();
+  });
+})();
