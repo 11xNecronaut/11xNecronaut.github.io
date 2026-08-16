@@ -131,3 +131,35 @@ document.getElementById('year').textContent = new Date().getFullYear();
     form.reset();
   });
 })();
+
+/* ---------- Custom cursor tracking ---------- */
+(function () {
+  if (!window.matchMedia('(pointer: fine)').matches || reduceMotion) return;
+
+  var dot = document.querySelector('.cursor-dot');
+  var ring = document.querySelector('.cursor-ring');
+  if (!dot || !ring) return;
+
+  var mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+  window.addEventListener('mousemove', function (e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    dot.style.left = mouseX + 'px';
+    dot.style.top = mouseY + 'px';
+  });
+
+  function followRing() {
+    ringX += (mouseX - ringX) * 0.18;
+    ringY += (mouseY - ringY) * 0.18;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+    requestAnimationFrame(followRing);
+  }
+  followRing();
+
+  document.querySelectorAll('a, button, .btn').forEach(function (el) {
+    el.addEventListener('mouseenter', function () { ring.classList.add('is-active'); });
+    el.addEventListener('mouseleave', function () { ring.classList.remove('is-active'); });
+  });
+})();
