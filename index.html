@@ -1,344 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  /* Set theme before first paint to avoid a flash of the wrong palette.
+     Follows the visitor's system preference; no data is stored. */
+  (function () {
+    var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    document.documentElement.setAttribute('data-theme', prefersLight ? 'light' : 'dark');
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dipesh — Cybersecurity analyst</title>
+<meta name="description" content="[Your Name] — application security researcher and freelance security consultant. Projects, skills, and contact.">
 
-    <meta name="description" content="Dipesh's cybersecurity portfolio showcasing projects, SOC lab work, security research, and technical skills.">
-    <meta name="author" content="Dipesh">
-
-    <title>Dipesh | Cybersecurity Portfolio</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-    <!-- ================= NAVBAR ================= -->
-
-    <header>
-        <nav class="navbar">
-
-            <a href="#" class="logo">Dipesh</a>
-
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-
-            <!-- Dark / Light Mode -->
-            <button
-                id="theme-toggle"
-                class="theme-toggle"
-                type="button"
-                aria-label="Toggle dark mode"
-                title="Toggle dark mode">
-                🌙
-            </button>
-
-        </nav>
-    </header>
-
-
-    <!-- ================= HERO ================= -->
-
-    <main>
-
-        <section class="hero-section" id="home">
-
-            <div class="hero-content">
-
-                <p class="hero-intro">Hello, I'm</p>
-
-                <h1>
-                    <span class="highlight">Dipesh</span>
-                </h1>
-
-                <p class="hero-subtitle">
-                    Cybersecurity Analyst | Linux Enthusiast | Problem Solver
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#projects" class="btn">
-                        View My Work
-                    </a>
-
-                    <a href="#contact" class="btn btn-secondary">
-                        Contact Me
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= ABOUT ================= -->
-
-        <section id="about" class="about-section">
-
-            <div class="section-container">
-
-                <h2>About Me</h2>
-
-                <p>
-                    I'm a curious and driven person who enjoys learning,
-                    solving problems, and taking on challenges that push me
-                    to grow.
-                </p>
-
-                <p>
-                    I'm passionate about technology and cybersecurity,
-                    and I enjoy turning what I learn into practical,
-                    meaningful projects.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= PROJECTS ================= -->
-
-        <section id="projects" class="projects-section">
-
-            <div class="section-container">
-
-                <h2>Projects</h2>
-
-                <p class="section-description">
-                    A selection of cybersecurity projects and hands-on
-                    security work I've built and experimented with.
-                </p>
-
-
-                <div class="project-cards">
-
-
-                    <!-- Project 1 -->
-
-                    <article class="project-card">
-
-                        <img
-                            src="images/arcanux.png"
-                            alt="Arcanux cybersecurity project"
-                            loading="lazy">
-
-                        <div class="project-content">
-
-                            <h3>Arcanux</h3>
-
-                            <p>
-                                A post-quantum secure data-hiding platform
-                                that combines encryption and steganography
-                                to protect sensitive information.
-                            </p>
-
-                            <div class="project-links">
-
-                                <a
-                                    href="#"
-                                    class="project-link"
-                                    target="_blank"
-                                    rel="noopener noreferrer">
-                                    View Project
-                                </a>
-
-                                <a
-                                    href="https://github.com/"
-                                    class="project-link"
-                                    target="_blank"
-                                    rel="noopener noreferrer">
-                                    GitHub
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- Project 2 -->
-
-                    <article class="project-card">
-
-                        <img
-                            src="images/soc-lab.png"
-                            alt="Security Operations Center laboratory"
-                            loading="lazy">
-
-                        <div class="project-content">
-
-                            <h3>SOC Lab</h3>
-
-                            <p>
-                                A hands-on security operations environment
-                                built to simulate real-world threat detection,
-                                monitoring, investigation, and incident
-                                response across multiple systems.
-                            </p>
-
-                            <div class="project-links">
-
-                                <a
-                                    href="#"
-                                    class="project-link"
-                                    target="_blank"
-                                    rel="noopener noreferrer">
-                                    View Project
-                                </a>
-
-                                <a
-                                    href="https://github.com/"
-                                    class="project-link"
-                                    target="_blank"
-                                    rel="noopener noreferrer">
-                                    GitHub
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- Project 3 -->
-
-                    <article class="project-card">
-
-                        <img
-                            src="images/mitre-attack-chain.png"
-                            alt="MITRE ATT&CK attack chain project"
-                            loading="lazy">
-
-                        <div class="project-content">
-
-                            <h3>MITRE ATT&CK Attack Chain</h3>
-
-                            <p>
-                                A practical SOC platform that reconstructs
-                                simulated attacks into an end-to-end adversary
-                                chain, maps behaviors to MITRE ATT&CK techniques,
-                                correlates security events, and identifies
-                                detection gaps.
-                            </p>
-
-                            <div class="project-links">
-
-                                <a
-                                    href="#"
-                                    class="project-link"
-                                    target="_blank"
-                                    rel="noopener noreferrer">
-                                    View Project
-                                </a>
-
-                                <a
-                                    href="https://github.com/"
-                                    class="project-link"
-                                    target="_blank"
-                                    rel="noopener noreferrer">
-                                    GitHub
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= CONTACT ================= -->
-
-        <section id="contact" class="contact-section">
-
-            <div class="section-container">
-
-                <h2>Contact Me</h2>
-
-                <p>
-                    I'm open to cybersecurity opportunities, internships,
-                    collaborations, and interesting security projects.
-                </p>
-
-
-                <form class="contact-form">
-
-                    <label for="name">Name</label>
-
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Your Name"
-                        required>
-
-
-                    <label for="email">Email</label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Your Email"
-                        required>
-
-
-                    <label for="message">Message</label>
-
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="6"
-                        placeholder="Your Message"
-                        required></textarea>
-
-
-                    <button
-                        type="submit"
-                        class="btn">
-                        Send Message
-                    </button>
-
-                </form>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer>
-
-        <p>
-            &copy; 2026 Dipesh. All Rights Reserved.
-        </p>
-
-    </footer>
-
-
-    <!-- JavaScript -->
-    <script src="scripts.js"></script>
-
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#top">[Your Name]<span class="nav__brand-dot">.</span></a>
+
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav__actions">
+      <button id="themeToggle" class="icon-btn theme-toggle" type="button" aria-label="Switch to light theme">
+        <svg class="icon icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/></svg>
+        <svg class="icon icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z"/></svg>
+      </button>
+      <button id="navMenuBtn" class="icon-btn nav__menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3.5 6.5h17M3.5 12h17M3.5 17.5h17"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="hero__inner">
+      <div class="hero__content reveal">
+        <p class="hero__eyebrow">Application Security &middot; Bug Bounty &middot; Research</p>
+        <h1 class="hero__title">[Your Name] finds what the scanners miss.</h1>
+        <p class="hero__subtitle">[One or two lines describing what you do — e.g. "I test web applications by hand, report what I find clearly, and I'm currently deep in a self-directed bug bounty sprint."]</p>
+        <div class="hero__cta">
+          <a href="#projects" class="btn btn--primary">View Projects</a>
+          <a href="#contact" class="btn btn--ghost">Get in Touch</a>
+        </div>
+        <dl class="hero__stats">
+          <div class="hero__stat"><dt>[XX]</dt><dd>Reports Submitted</dd></div>
+          <div class="hero__stat"><dt>[XX]</dt><dd>Apps Assessed</dd></div>
+          <div class="hero__stat"><dt>[XX]</dt><dd>Months Active</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero__panel reveal" aria-hidden="true">
+        <div class="scan-panel">
+          <div class="scan-panel__bar">
+            <span class="scan-panel__dot scan-panel__dot--a"></span>
+            <span class="scan-panel__dot scan-panel__dot--b"></span>
+            <span class="scan-panel__dot scan-panel__dot--c"></span>
+            <span class="scan-panel__title">recon.sh</span>
+          </div>
+          <pre class="scan-panel__body"><code id="scanOutput"></code><span class="scan-panel__cursor" id="scanCursor"></span></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="section__inner">
+      <h2 class="section__heading reveal"><span class="section__eyebrow">01</span>About</h2>
+      <div class="about__grid reveal">
+        <p class="about__text">[Write three or four sentences: your background, what pulled you toward security, and how you approach the work. For example — "I came to security through a non-traditional path, spent time in &lsquo;___&rsquo;, and now split my time between freelance assessments and a structured self-study sprint in web application security."]</p>
+        <ul class="about__facts">
+          <li><span>Based in</span>[Your City, Country]</li>
+          <li><span>Focus</span>Web Application Security</li>
+          <li><span>Currently</span>[Studying &middot; Open to freelance work]</li>
+          <li><span>Researching</span>Post-Quantum Cryptography</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="skills">
+    <div class="section__inner">
+      <h2 class="section__heading reveal"><span class="section__eyebrow">02</span>Skills</h2>
+      <div class="skills__grid">
+        <article class="skill-card reveal">
+          <h3>Application Security</h3>
+          <p>[Short description of your testing methodology and what you focus on.]</p>
+          <ul class="tag-list">
+            <li>OWASP Top 10</li>
+            <li>Burp Suite</li>
+            <li>Manual Testing</li>
+            <li>Recon &amp; Enumeration</li>
+          </ul>
+        </article>
+        <article class="skill-card reveal">
+          <h3>Tools &amp; Platforms</h3>
+          <p>[Short description of the toolchain you work in day to day.]</p>
+          <ul class="tag-list">
+            <li>Nmap</li>
+            <li>Wireshark</li>
+            <li>Kali Linux</li>
+            <li>Git</li>
+          </ul>
+        </article>
+        <article class="skill-card skill-card--learning reveal">
+          <h3>Currently Exploring</h3>
+          <p>[What you're learning right now, and why it matters to your direction.]</p>
+          <ul class="tag-list">
+            <li>Bug Bounty Hunting</li>
+            <li>Post-Quantum Cryptography</li>
+            <li>Threat Analysis</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="section__inner">
+      <h2 class="section__heading reveal"><span class="section__eyebrow">03</span>Projects</h2>
+      <div class="projects__grid">
+        <article class="project-card reveal">
+          <div class="project-card__tags"><span class="tag tag--accent">Web AppSec</span></div>
+          <h3>[Project Name]</h3>
+          <p>[The target, your approach, and the outcome or finding — two sentences is plenty.]</p>
+          <div class="project-card__links">
+            <a href="#">Write-up <span aria-hidden="true">&rarr;</span></a>
+            <a href="#">Code <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+        <article class="project-card reveal">
+          <div class="project-card__tags"><span class="tag">Research</span></div>
+          <h3>[Project Name]</h3>
+          <p>[What you investigated, what you learned, and why it's worth reading.]</p>
+          <div class="project-card__links">
+            <a href="#">Write-up <span aria-hidden="true">&rarr;</span></a>
+            <a href="#">Code <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+        <article class="project-card reveal">
+          <div class="project-card__tags"><span class="tag tag--muted">Freelance</span></div>
+          <h3>[Project Name]</h3>
+          <p>[Scope of the engagement, what you delivered, and the impact — keep client details generic if needed.]</p>
+          <div class="project-card__links">
+            <a href="#">Case Study <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="experience">
+    <div class="section__inner">
+      <h2 class="section__heading reveal"><span class="section__eyebrow">04</span>Experience</h2>
+      <ol class="timeline">
+        <li class="timeline__item reveal">
+          <span class="timeline__year">[Year]</span>
+          <div class="timeline__content">
+            <h3>[Program / Course Name]</h3>
+            <p>[What you studied or completed, and what it gave you.]</p>
+          </div>
+        </li>
+        <li class="timeline__item reveal">
+          <span class="timeline__year">[Year]</span>
+          <div class="timeline__content">
+            <h3>[Freelance Security Work / Self-Directed Study]</h3>
+            <p>[What you worked on and how you structured the learning or engagements.]</p>
+          </div>
+        </li>
+        <li class="timeline__item reveal">
+          <span class="timeline__year">[Year]</span>
+          <div class="timeline__content">
+            <h3>[Current Program — e.g. BCA, ongoing]</h3>
+            <p>[What you're doing now and where it's heading.]</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="section__inner section__inner--narrow">
+      <h2 class="section__heading reveal"><span class="section__eyebrow">05</span>Contact</h2>
+      <p class="section__lead reveal">[A line inviting freelance inquiries, collaboration, or responsible disclosure reports.]</p>
+
+      <form class="contact-form reveal" id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary">Send Message</button>
+        <p class="contact-form__note" id="formNote" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="contact__links">
+        <a href="mailto:you@example.com" aria-label="Email">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+          Email
+        </a>
+        <a href="#" aria-label="GitHub">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.15-1.11-1.46-1.11-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86v2.76c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+          GitHub
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10.5v6M7.5 7.75v.01M12 16.5v-3.75c0-1.24.9-2.25 2-2.25s2 1.01 2 2.25v3.75"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p>&copy; <span id="year"></span> [Your Name]. Built with intent, not a template.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
