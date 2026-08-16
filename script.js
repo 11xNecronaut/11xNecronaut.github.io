@@ -163,3 +163,27 @@ document.getElementById('year').textContent = new Date().getFullYear();
     el.addEventListener('mouseleave', function () { ring.classList.remove('is-active'); });
   });
 })();
+
+/* ---------- Projects scroller ---------- */
+(function () {
+  var track = document.getElementById('projectsTrack');
+  var prev = document.getElementById('projPrev');
+  var next = document.getElementById('projNext');
+  if (!track || !prev || !next) return;
+
+  function step() {
+    var card = track.querySelector('.project-card');
+    return card ? card.offsetWidth + 24 : 320;
+  }
+
+  prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+  next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+
+  function updateArrows() {
+    prev.disabled = track.scrollLeft <= 4;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+  }
+  track.addEventListener('scroll', updateArrows);
+  window.addEventListener('resize', updateArrows);
+  updateArrows();
+})();
